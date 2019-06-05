@@ -1,0 +1,61 @@
+#Geptop2:An update of geptop, a gene essentiality prediction tool based on orthology and phylogeny
+#Copyright (c) Qing-Feng Wen 2018 <wenqingfeng@std.uestc.edu.cn>                                              
+#Version: 2.0
+
+Geptop is also available as a standalone python script to run in a Linux or Windows environment. 
+
+These modules MUST be installed BEFORE Geptop is used.
+     *Linux or Windows environment- Geptop has been tested on Ubuntu and Windows
+     *Python version 2.x - The latest version of Python can be obtained from 
+                             http://www.python.org/
+     *Biopython library for python 2.x- Biopython can be obtained from 
+                                          http://biopython.org/
+     *Standalone NCBI BLAST - BLAST can be obtained from the NCBI FTP site at 
+                                ftp://ftp.ncbi.nih.gov/blast/executables/
+
+
+
+
+WHOLE-GENOMIC PROTEIN sequences in FASTA format can submit on the standalone Geptop. 
+This format consists of these parts as follow:
+
+     *A “>” symbol at the beginning of the title line and followed a description 
+     *The sequence itself at a newline
+
+An example of FASTA format:
+>gi|16128009|ref|NP_414556.1| chaperone Hsp40, co-chaperone with DnaK [Escherichia coli str. K-12 substr. MG1655]
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYG
+HAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPT
+LEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSK
+TLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEI
+EVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGG
+PTGEHNSPRSKSFFDGVKKFFDDLTR
+
+
+The usage of command line and optional parameters are described below.
+Usage: python geptop.py 
+       –i protein.faa 
+       [Optional parameters] –p path of BLAST executable （for examples, E:\blast\bin\ or /usr/bin/）
+                             –s essentiality score cutoff (default: 0.24)
+                             –o output file (default name: score.txt)
+
+
+
+Output sample:
+#Total 3307 genes are submitted
+#507 of them are predicted as essential genes
+Class(essential gene:1,others:0)    Essentiality Score  Protein
+1   0.8769      gi|50083298|ref|YP_0
+1   0.7838      gi|50083299|ref|YP_0
+0   0.0929      gi|50083300|ref|YP_0
+1   0.9691      gi|50083301|ref|YP_0
+0   0.0315      gi|50083302|ref|YP_0
+0   0.0     gi|50083303|ref|YP_0
+0   0.0308      gi|50083304|ref|YP_0
+0   0.0     gi|50083305|ref|YP_0
+0   0.0     gi|50083306|ref|YP_0
+1   0.3525      gi|50083307|ref|YP_0
+0   0.0     gi|50083308|ref|YP_0
+...
+
+
